@@ -1,0 +1,27 @@
+type Airport {
+    airportId: ID!
+    name: String
+    city: String
+    country: String
+    iata: String
+    latitude: Float
+    longitude: Float
+    destinations: [Airport]
+}
+type SearchResult {
+    time: Int
+    algo: String
+    numNodes: Int
+    distance: Float
+    price: Float
+    path: [Airport]
+}
+type Subscription {
+    currentSearchPath: SearchResult
+}
+type Query {
+    countAllAirports: Int!
+    getAllAirports: [Airport]
+    getAirport(iata: String): Airport
+    search(from: String, destination: String, algo: String): SearchResult #[Airport]
+}

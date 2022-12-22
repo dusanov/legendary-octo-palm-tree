@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  sfr-back:
+    build:
+      context: sfr-back
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - sfr-net
+
+  sfr-front:
+    build:
+      context: sfr-front
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    depends_on:
+      - sfr-back
+    networks:
+      - sfr-net
+
+networks:
+  sfr-net:
+    driver: bridge

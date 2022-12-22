@@ -1,0 +1,61 @@
+plugins {
+    id 'org.springframework.boot' version '2.7.1'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'io.freefair.lombok' version '6.5.0.2'
+    id 'java'
+    id 'maven-publish'
+}
+
+group = 'me.dusan'
+version = '0.0.1-SNAPSHOT'
+description = 'sfr'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenLocal()
+    maven {
+        url = uri('https://repo.maven.apache.org/maven2/')
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    implementation 'org.projectlombok:lombok'
+    implementation 'com.fasterxml.jackson.dataformat:jackson-dataformat-csv'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310'
+    implementation 'com.bedatadriven:jackson-datatype-jts:2.4'
+    implementation 'io.projectreactor:reactor-core'
+    implementation 'org.springframework.boot:spring-boot-starter-graphql'
+    runtimeOnly 'com.graphql-java-kickstart:graphiql-spring-boot-starter:11.1.0'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'com.google.guava:guava:31.1-jre'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from(components.java)
+        }
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+targetCompatibility = JavaVersion.VERSION_1_8
+
+jar {
+    manifest {
+        attributes 'Main-Class': 'me.dusan.sfr.App'
+    }
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}

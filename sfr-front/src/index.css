@@ -1,0 +1,46 @@
+
+.regions {
+  fill: rgba(68, 170, 238, 0.5);
+  stroke: #44aaee; 
+}
+
+.aerodromi {
+fill: rgba(8, 70, 238, 0.2);
+stroke: rgba(28, 70, 138, 0.5);
+}
+
+.path {
+fill-opacity: 0;
+stroke: #e602ff;
+stroke-width: 6; 
+}
+
+.path-temp {
+  fill-opacity: 0;
+  stroke: #e985f4;
+  stroke-width: 6; 
+  }
+
+
+.current {
+fill-opacity: 0.8;
+stroke: #000000;
+stroke-width: 2; 
+}
+
+.addScroll{
+overflow-y:auto;
+max-height: 60vh;
+}
+
+.start {
+fill-opacity: 2.8;
+stroke: hwb(98 9% 6%);
+stroke-width: 6; 
+}
+
+.finish {
+fill-opacity: 2.8;
+stroke: #eb0f0f;
+stroke-width: 6; 
+}
