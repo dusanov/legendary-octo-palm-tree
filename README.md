@@ -8,6 +8,7 @@ To start the app, simply run the following command:
 ```bash
 docker-compose up -d --build
 ```
+and go to http://localhost:3000
 
 ## Technologies Used
 The app is divided into two parts: 
