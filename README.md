@@ -6,9 +6,13 @@ This app finds the shortest flight path between two airports using three differe
 To start the app, simply run the following command:
 
 ```bash
-docker-compose up -d --build
-```
+docker-compose up -d --bui
 and go to http://localhost:3000
+```
+
+## Using the App
+To select start and destination airport, use the start and finish dropdowns or use left and right click on the globe while hovering mouse over the airport. 
+To select the different algorithm use the algo dropdown. To execute the search use the Go button.
 
 ## Technologies Used
 The app is divided into two parts: 
