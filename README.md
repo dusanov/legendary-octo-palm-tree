@@ -14,6 +14,10 @@ and go to http://localhost:3000
 To select start and destination airport, use the start and finish dropdowns or use left and right click on the globe while hovering mouse over the airport. 
 To select the different algorithm use the algo dropdown. To execute the search use the Go button.
 
+Zoom in and out is performed by holding down left and right mouse buttons while dragging the mouse up and down or using the mouse wheel.
+
+Rotation of the globe is performed by holding down left mouse button while moving the mouse.
+
 ## Technologies Used
 The app is divided into two parts: 
 * frontend D3, ReactJS and Apollo client
