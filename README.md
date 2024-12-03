@@ -1,6 +1,6 @@
 # Flight Path Finder
 
-This app finds the shortest flight path between two airports using three different algorithms: Breadth-First Search (BFS), A* Search, and Dijkstra's algorithm.
+This app finds the shortest flight path between two airports and available flight routes using three different algorithms: Breadth-First Search (BFS), A* Search, and Dijkstra's algorithm.
 
 ## Starting the App
 To start the app, simply run the following command:
