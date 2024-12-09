@@ -146,7 +146,7 @@ class App extends React.Component {
     });
   }
 
-  onSearch = () => {
+  onSearch = () => { 
     this.setState({
       result: null,
       current: {},
@@ -158,6 +158,8 @@ class App extends React.Component {
         { key: "current", className: "current", geoJson: {} },
       ]
     });
+    if (this.state.from == null || this.state.destination == null)
+      return;
     client.query({
       query: BFS,
       variables: { from: this.state.from.properties.iata, destination: this.state.destination.properties.iata, algo: this.state.algo }
@@ -233,6 +235,7 @@ class App extends React.Component {
                 </div>
                 <div className="row">
                   <button
+                    id='goButton'
                     onClick={this.onSearch}
                     type="button"
                     className="btn btn-outline-primary"
@@ -262,8 +265,8 @@ class App extends React.Component {
               </div> : null
             }
             {(result) ?
-              <div className="alert alert-transparent">
-                <p> execution time: {result.time}ms,
+              <div id='resultDiv' className="alert alert-transparent">
+                <p id='resultText'> execution time: {result.time}ms,
                   algo: {result.algo},
                   num of nodes: {result.numNodes},
                   distance: {result.distance}km,
