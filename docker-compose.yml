@@ -1,7 +1,9 @@
 version: '3'
-
 services:
   sfr-back:
+    hostname: sfr-back
+    environment:
+      - CORS_ALLOWED_ORIGIN=$CORS_ALLOWED_ORIGIN
     build:
       context: sfr-back
       dockerfile: Dockerfile
@@ -11,9 +13,12 @@ services:
       - sfr-net
 
   sfr-front:
+    hostname: sfr-front
+    environment:
+      - REACT_APP_SFR_BACK_HOST=$REACT_APP_SFR_BACK_HOST
     build:
       context: sfr-front
-      dockerfile: Dockerfile.dev
+      dockerfile: Dockerfile
     ports:
       - "3000:3000"
     depends_on:

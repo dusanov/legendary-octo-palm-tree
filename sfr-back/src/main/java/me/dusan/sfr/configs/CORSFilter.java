@@ -1,5 +1,6 @@
 package me.dusan.sfr.configs;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
@@ -14,13 +15,17 @@ import reactor.core.publisher.Mono;
 
 @Component
 public class CORSFilter implements WebFilter {
+
+    @Value("#{environment.CORS_ALLOWED_ORIGIN}")
+    private String allowedOrigin;
+
     @Override
     public Mono<Void> filter(ServerWebExchange exchange, WebFilterChain chain) {
         ServerHttpRequest request = exchange.getRequest();
         if (CorsUtils.isCorsRequest(request)) {
             ServerHttpResponse response = exchange.getResponse();
             HttpHeaders headers = response.getHeaders();
-            headers.add("Access-Control-Allow-Origin", "http://localhost:3000");
+            headers.add("Access-Control-Allow-Origin", allowedOrigin);
             headers.add("Access-Control-Allow-Methods", "POST, GET, PUT, OPTIONS, DELETE, PATCH");
             headers.add("Access-Control-Max-Age", "3600");
             headers.add("Access-Control-Allow-Headers","Origin, Content-Type, Accept");
