@@ -48,6 +48,10 @@ services:
       - chrome
     networks:
       - sfr-net
+    # volumes:
+    #   - ./selenium-tests/test-reports:/home/gradle/src/build/reports
+    ports:
+      - "33885:33885"
 
 networks:
   sfr-net:

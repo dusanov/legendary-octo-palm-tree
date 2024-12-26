@@ -4,11 +4,13 @@ plugins {
     id 'io.freefair.lombok' version '6.5.0.2'
     id 'java'
     id 'maven-publish'
+    id("io.qameta.allure") version "2.12.0"
+    // id("io.qameta.allure-aggregate-report") version "2.12.0"
 }
 
 group = 'me.dusan'
 version = '0.0.1-SNAPSHOT'
-description = 'sfr'
+description = 'selenium tests for sfr'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {

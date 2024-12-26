@@ -5,5 +5,6 @@ COPY --chown=gradle:gradle build.gradle settings.gradle /home/gradle/src/
 RUN gradle clean build --no-daemon > /dev/null 2>&1 || true
 # build all
 COPY --chown=gradle:gradle . /home/gradle/src
-ENTRYPOINT ["gradle", "clean", "test"]
+ENTRYPOINT gradle cleanTest test allureServe --port 33885
+# ENTRYPOINT ["gradle", "test"]
 # ENTRYPOINT ["tail","-f","/dev/null"]
