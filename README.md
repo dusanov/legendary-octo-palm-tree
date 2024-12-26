@@ -16,12 +16,18 @@ To run selenium tests, simply run the following command:
 ```bash
 docker compose --env-file test.env -f docker-compose.test.yml up -d --build
 ```
-currently only way to confirm the result is to check the logs:
+To verify test results, check the logs:
 
 ```bash
 docker logs legendary-octo-palm-tree-testovi-1 --follow
 ```
-or by watching the tests being executed in the selenium grid:
+or by going to Allure server:
+
+http://localhost:33885/index.html
+
+
+to watch tests being executed in the selenium grid:
+
 http://localhost:7900/?autoconnect=1&resize=scale&password=secret
 
 ## Technologies Used
